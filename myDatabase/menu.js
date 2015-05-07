@@ -13,18 +13,6 @@ module.exports = function(sequelize, DataTypes) {
     price: {
       type: 'DOUBLE PRECISION',
       allowNull: true,
-    },
-    starter: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    mainDish: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    dessert: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
     }
   });
 };
