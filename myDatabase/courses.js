@@ -1,26 +1,25 @@
 /* jshint indent: 2 */
+var connection = require('./../database/connection.js');
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('courses', { 
+exports.schema = connection.sequelize.define('courses', { 
     id: {
-      type: DataTypes.INTEGER,
+      type: connection.Sequelize.STRING,
       allowNull: false,
     },
     name: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     image: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     price: {
-      type: 'DOUBLE PRECISION',
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     type: {
-      type: DataTypes.ENUM('Main','Starter','Dessert'),
+      type: connection.Sequelize.STRING,
       allowNull: true,
     }
   });
-};

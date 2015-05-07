@@ -1,22 +1,23 @@
 /* jshint indent: 2 */
+var connection = require('./../database/connection.js');
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('restaurant', { 
+
+exports.schema = connection.sequelize.define('restaurant', { 
     Name: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: false,
     },
     Address: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: false,
     },
     Description: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     Image: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     }
   });
-};
+

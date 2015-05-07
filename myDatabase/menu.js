@@ -1,18 +1,17 @@
 /* jshint indent: 2 */
+var connection = require('./../database/connection.js');
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('menu', { 
+exports.schema = connection.sequelize.define('menu', { 
     id: {
-      type: DataTypes.INTEGER,
+      type: connection.Sequelize.STRING,
       allowNull: false,
     },
     name: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     price: {
-      type: 'DOUBLE PRECISION',
+      type: connection.Sequelize.STRING,
       allowNull: true,
     }
   });
-};

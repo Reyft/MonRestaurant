@@ -1,26 +1,25 @@
 /* jshint indent: 2 */
+var connection = require('./../database/connection.js');
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('employees', { 
+exports.schema = connection.sequelize.define('employees', { 
     id: {
-      type: DataTypes.INTEGER,
+      type: connection.Sequelize.STRING,
       allowNull: false,
     },
     firstName: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     lastName: {
-      type: DataTypes.TEXT,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     role: {
-      type: DataTypes.ENUM('boss','cook','waiter'),
+      type: connection.Sequelize.STRING,
       allowNull: true,
     },
     favPlate: {
-      type: DataTypes.INTEGER,
+      type: connection.Sequelize.STRING,
       allowNull: true,
     }
   });
-};
