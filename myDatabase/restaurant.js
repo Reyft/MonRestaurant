@@ -6,6 +6,8 @@ exports.schema = connection.sequelize.define('restaurant', {
     Name: {
       type: connection.Sequelize.STRING,
       allowNull: false,
+	  primaryKey: true, 
+	  unique: true,
     },
     Address: {
       type: connection.Sequelize.STRING,

@@ -5,6 +5,8 @@ exports.schema = connection.sequelize.define('employees', {
     id: {
       type: connection.Sequelize.STRING,
       allowNull: false,
+	  primaryKey: true, 
+	unique: true,
     },
     firstName: {
       type: connection.Sequelize.STRING,
