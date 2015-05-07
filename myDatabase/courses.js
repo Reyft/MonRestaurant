@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('courses', { 
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      allowNull: false,
     },
     name: {
       type: DataTypes.TEXT,

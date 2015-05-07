@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('employees', { 
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      allowNull: false,
     },
     firstName: {
       type: DataTypes.TEXT,
