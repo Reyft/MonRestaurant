@@ -1,8 +1,8 @@
 var express   = require('express'),
-	connection = require('./database/connection.js'),
+	connection = require('./myDatabase/connection.js'),
 	http      = require('http'),
 	restful   = require('sequelize-restful'),
-	relations = require('./database/relations.js'),
+	relations = require('./myDatabase/relations.js'),
 	app = express();
 
 relations.init();
@@ -24,7 +24,7 @@ if(process.argv.length > 2) {
 }
 
 if(dropDatabase) {
-    connection.sequelize.sync({force: true}).then(function () {
+    connection.sequelize.sync({force: true}).success(function () {
         console.log("Base created !");
     });
 }

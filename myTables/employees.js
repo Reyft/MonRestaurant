@@ -1,18 +1,18 @@
 /* jshint indent: 2 */
-var connection = require('./../database/connection.js');
+var connection = require('./../myDatabase/connection.js');
 
-exports.schema = connection.sequelize.define('menu', { 
+exports.schema = connection.sequelize.define('employees', { 
     id: {
       type: connection.Sequelize.STRING,
       allowNull: false,
 	  primaryKey: true, 
 	unique: true,
     },
-    name: {
+    firstName: {
       type: connection.Sequelize.STRING,
       allowNull: true,
     },
-    price: {
+    lastName: {
       type: connection.Sequelize.STRING,
       allowNull: true,
     }

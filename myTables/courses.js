@@ -1,25 +1,23 @@
 /* jshint indent: 2 */
-var connection = require('./../database/connection.js');
+var connection = require('./../myDatabase/connection.js');
 
-
-exports.schema = connection.sequelize.define('restaurant', { 
-    Name: {
+exports.schema = connection.sequelize.define('courses', { 
+    id: {
       type: connection.Sequelize.STRING,
       allowNull: false,
 	  primaryKey: true, 
-	  unique: true,
+	unique: true,
     },
-    Address: {
-      type: connection.Sequelize.STRING,
-      allowNull: false,
-    },
-    Description: {
+    name: {
       type: connection.Sequelize.STRING,
       allowNull: true,
     },
-    Image: {
+    image: {
+      type: connection.Sequelize.STRING,
+      allowNull: true,
+    },
+    price: {
       type: connection.Sequelize.STRING,
       allowNull: true,
     }
   });
-
