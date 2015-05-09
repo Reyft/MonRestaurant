@@ -6,10 +6,10 @@
 
 angular.module('restaurantApp')
     .factory('Menu', ['$http', function ($http) {
-        var menuAddress = 'http://garance-remy-ihm.herokuapp.com/api/menus';
+        var menuAddress = 'http://garance-remy-ihm.herokuapp.com/api/menus/';
         var obj = {
             add: function(menuInfo, successCB, failCB) {
-                $http.post(menuAddress + '/', menuInfo)
+                $http.post(menuAddress, menuInfo)
                     .success(function (result) {
                         if (result.status === 'success') {
                             //we can also check that the values are what we actually sent
@@ -22,8 +22,8 @@ angular.module('restaurantApp')
                     })
                     .error(failCB);
             },
-            get: function (menuId, successCB, failCB) { //successCB & fail sont des fonctions qu'on appelle avec des params
-                $http.get(menuAddress + '/', + menuId)
+            getFullMenu: function (menuId, successCB, failCB) { //successCB & fail sont des fonctions qu'on appelle avec des params
+                $http.get(menuAddress, menuId)
                     .success(function (result) {
                         if (result.status === 'success') {
                             //we can also check that the values are what we actually sent
@@ -40,8 +40,22 @@ angular.module('restaurantApp')
                 //console.log(error); pas de console log ici
 
             },
+            getMenuCourses: function (menuId, successCB, failCB) {
+                $http.get(menuAddress + menuId+'/courseTypes')
+                    .success(function (result) {
+                        if (result.status === 'success') {
+                            //we can also check that the values are what we actually sent
+                            successCB(result.data);
+                        }
+                        else {
+                            failCB(result.data);
+                        };
+                    })
+                    .error(failCB());
+            },
+
             update: function (menuId, newData, successCB, failCB) {
-                $http.put(menuAddress + '/' + menuId, newData)
+                $http.put(menuAddress + menuId, newData)
                     .success(function (result) {
                         if (result.status === 'success') {
                             //we can also check that the values are what we actually sent
@@ -55,7 +69,7 @@ angular.module('restaurantApp')
                     .error(failCB);
             },
             delete: function (menuId, failCB) {
-                $http.delete(menuAddress + '/' + menuId)
+                $http.delete(menuAddress + menuId)
                     .success(function (result) {
                         if (result.status !== 'success') {
                             failCB(result);

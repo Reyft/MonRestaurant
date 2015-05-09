@@ -8,7 +8,7 @@
  * Controller of the restaurantApp
  */
 angular.module('restaurantApp')
-    .controller('MenuCtrl', ['$scope', '$window', 'Menu', function ($scope, $window, Menu) {
+    .controller('MenuCtrl', ['$scope', '$window', 'Menu', 'Course', function ($scope, $window, Menu, Course) {
   /*    $scope.deleteU = function() {
         User.delete($scope.theUId,
             function(error) {
@@ -58,9 +58,16 @@ angular.module('restaurantApp')
             //par ex on remplit un $scope.error où on donne d'autres infos
           });
 
-      $scope.getTheUserId = function(hisId) {
-        $scope.theUId = hisId;
-        console.log('ok with '+ $scope.theUId);
+      $scope.getDetailsOfMenu = function(hisId) {
+          Menu.getMenuCourses(hisId,
+              function (result) {
+                  $scope.menuDetails = result;
+              },
+              function (error) {
+                  $scope.menuDetails = []; //must deal w/ error
+              });
       };
     }
+
+        //getMenuCourses
     ]);

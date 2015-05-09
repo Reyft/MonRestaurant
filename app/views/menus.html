@@ -1,5 +1,5 @@
 <div>
-    Nos Menu
+    Nos Menus
 </div>
 
 <div class="col-lg-5 col-md-5 col-sm-5">
@@ -10,7 +10,7 @@
         <div class="panel-body">
             <ul>
                 <li ng-repeat="m in theMenus"> {{m.name}} is an awesome menu !
-                    It is composed of lots of great stuff, and it only costs {{m.price}}
+                    <button class="btn-grp btn-info" ng-click="getDetailsOfMenu(m.id)"> Check it out !</button>
                 </li>
             </ul>
         </div>
@@ -23,7 +23,22 @@
             <h3 class="panel-title">Le menu que tu veux</h3>
         </div>
         <div class="panel-body">
-            Panel content
+            Dans ce super menu, tu vas trouver : <br />
+            Comme entrées :
+            <!--<div id="totalPos">{{(tweets | filter:{'name':'dessert'}).length}}</div>
+            <div id="totalNeut">{{(tweets | filter:{polarity:'Neutral'}).length}}</div> -->
+            <ul><li ng-repeat="ms in menuDetails | filter:{'name':'starter'}">
+                {{ms.courseId}}
+            </li> </ul>
+            Comme plats :
+            <ul><li ng-repeat="mp in menuDetails | filter:{'name':'main'}">
+                {{mp.courseId}}
+            </li> </ul>
+            Comme desserts :
+            <ul><li ng-repeat="md in menuDetails | filter:{'name':'dessert'}">
+                {{md.courseId}}
+            </li> </ul>
+
         </div>
     </div>
 </div>
