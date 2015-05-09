@@ -8,7 +8,6 @@
  * Controller of the restaurantApp
  */
 angular.module('restaurantApp')
-  .controller('HumansCtrl', function ($scope) {
+  .controller('HumansCtrl', ['$scope', function ($scope) {
     $scope.Humans = [];
-    ];
-  });
+  }]);
