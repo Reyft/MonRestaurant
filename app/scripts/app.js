@@ -43,6 +43,10 @@ angular
         templateUrl: 'views/findus.html',
         controller: 'FindUsCtrl'
       })
+      .when('/com', {
+        templateUrl: 'views/comm.html',
+        controller: 'ComCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
