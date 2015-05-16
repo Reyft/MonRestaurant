@@ -11,7 +11,7 @@
             <ul>
                 <li ng-repeat="m in theMenus"> {{m.name}} is an awesome menu !
                     <button class="btn-grp btn-info" ng-click="getDetailsOfMenu(m.id)"> Check it out !</button>
-                    <button class="btn-grp btn-info" ng-click="goToComments(m.id)"> Commentaires </button>
+                    <button class="btn-grp btn-info" ng-click="goToComments(m.id)"> Commentaires</button>
 
                 </li>
             </ul>
@@ -25,21 +25,17 @@
             <h3 class="panel-title">Le menu que tu veux</h3>
         </div>
         <div class="panel-body">
-            Dans ce super menu, tu vas trouver : <br />
-            Comme entrées :
-            <ul><li ng-repeat="ms in menuDetails | filter:{'name':'starter'}">
-              <!--  {{ms.courseId}}-->
-              <!--  {{getThisCourse(ms.courseId)}}-->
-            </li> </ul>
-            Comme plats :
-            <ul><li ng-repeat="mp in menuDetails | filter:{'name':'main'}">
-              <!--  {{getThisCourse(mp.courseId)}}-->
-            </li> </ul>
-            Comme desserts :
-            <ul><li ng-repeat="md in menuDetails | filter:{'name':'dessert'}">
-                {{md.courseId}}
-            </li> </ul>
+            Dans ce super menu, tu vas trouver : <br/>
+            <ul ng-repeat="md in menuDetails">
+                <div ng-repeat="cd in theCourses">
+                    <li ng-if="md.courseId == cd.id">
+                        {{cd.name}}
+                    </li>
+                </div>
+                </ul>
 
-        </div>
+
     </div>
 </div>
+    </div>
+
