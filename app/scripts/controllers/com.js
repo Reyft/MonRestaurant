@@ -16,6 +16,10 @@ angular.module('restaurantApp')
     			console.log('cette erreur la : '+error);
     		});
 
+		$scope.backToMenus = function() {
+			$window.history.back();
+		}
+
     	$scope.addCom = function(newCom){
     		newCom.menuId = $scope.menuId;
     		Com.add(newCom,
