@@ -2,6 +2,11 @@
 	Commentaires	
 </div>
 <br />
+<div class="btn-group" role="group" aria-label="...">
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#addComment">Ajouter</button>
+</div>
+<br />
+<br />
 <div ng-repeat = "c in com | orderBy: '-updatedAt'">
 	<div class="panel panel-default">
   		<div class="panel-heading">
@@ -15,8 +20,25 @@
   			<button type="button" class="btn btn-default">Supprimer</button>
 		</div>
 	</div>
+</div>	
+
+<div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="upgradeModalLabel">Upgrade person</h4>
+            </div>
+            <div class="modal-body">                
+                <form novalidate class="simple-form">
+                    Title : <input ng-model="newCom.Title" type="text" required /><br />
+                    Contenu : <input type="text" ng-model="newCom.Content" required /><br />                    
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="addCom(newCom)">Ajouter</button>
+            </div>
+        </div>
+    </div>
 </div>
-	
-
-
-

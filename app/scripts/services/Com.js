@@ -2,7 +2,7 @@
 
 angular.module('restaurantApp')
 	.factory('Com', ['$http', function ($http) {
-		var comments = 'http://garance-remy-ihm.herokuapp.com/api/comments';
+		var comments = 'http://garance-remy-ihm.herokuapp.com/api/comments/';
 		var menus = 'http://garance-remy-ihm.herokuapp.com/api/menus';
 		var obj = {
 			
@@ -33,7 +33,7 @@ angular.module('restaurantApp')
 			},
 
 			delete: function(comId, failCB) {
-				$http.delete(comments + '/' + comId)
+				$http.delete(comments + comId)
 					.success(function(result){
 						if (result.status != "success"){
 							failCB(result.data);
@@ -43,7 +43,7 @@ angular.module('restaurantApp')
 			},
 
 			update: function(comId, objet, succesCB, failCB){
-				$http.put(comments + '/' + comId, objet)
+				$http.put(comments + comId, objet)
 					.success(function(result){
 						if (result.status == "success"){
 							succesCB(result.data);
