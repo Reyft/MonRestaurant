@@ -11,6 +11,8 @@
             <ul>
                 <li ng-repeat="m in theMenus"> {{m.name}} is an awesome menu !
                     <button class="btn-grp btn-info" ng-click="getDetailsOfMenu(m.id)"> Check it out !</button>
+                    <button class="btn-grp btn-info" ng-click="goToComments(m.id)"> Commentaires </button>
+
                 </li>
             </ul>
         </div>
@@ -25,10 +27,9 @@
         <div class="panel-body">
             Dans ce super menu, tu vas trouver : <br />
             Comme entrées :
-            <!--<div id="totalPos">{{(tweets | filter:{'name':'dessert'}).length}}</div>
-            <div id="totalNeut">{{(tweets | filter:{polarity:'Neutral'}).length}}</div> -->
             <ul><li ng-repeat="ms in menuDetails | filter:{'name':'starter'}">
-                {{ms.courseId}}
+              <!--  {{ms.courseId}}-->
+                {{getThisCourse(ms.courseId)}}
             </li> </ul>
             Comme plats :
             <ul><li ng-repeat="mp in menuDetails | filter:{'name':'main'}">

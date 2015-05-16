@@ -67,7 +67,11 @@ angular.module('restaurantApp')
                   $scope.menuDetails = []; //must deal w/ error
               });
       };
+        $scope.goToComments = function (theMenuIdYouWant) {
+            ;
+        };
+        //getMenuCourses
+      //  $scope.getThisCourse(ms.courseId)
     }
 
-        //getMenuCourses
     ]);
