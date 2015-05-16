@@ -43,7 +43,7 @@ angular
         templateUrl: 'views/findus.html',
         controller: 'FindUsCtrl'
       })
-      .when('/com', {
+      .when('/com/:menuId?', {
         templateUrl: 'views/comm.html',
         controller: 'ComCtrl'
       })

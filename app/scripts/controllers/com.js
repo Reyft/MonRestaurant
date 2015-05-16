@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('restaurantApp')
-    .controller('ComCtrl', ['$scope', '$window', 'Com', function ($scope, $window, Com) {
+    .controller('ComCtrl', ['$scope', '$window', '$routeParams', 'Com', function ($scope, $window, $routeParams, Com) {
     	
-    	Com.get(function (coursesId, result){
-    		$scope.com = result;
-    	},
-    		function(error){
-    		console.log();
-    	})
-    };
+    	$scope.com = [];
+
+    	$scope.menuId = $routeParams.menuId;
+
+    	// Com.get(coursesId,
+    	// 	function (result) {
+    	// 		$scope.com = result;
+    	// 	},
+    	// 	function(error){
+    	// 		console.log(error);
+    		}]);     

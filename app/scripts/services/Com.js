@@ -2,11 +2,12 @@
 
 angular.module('restaurantApp')
 	.factory('Com', ['$http', function ($http) {
-		var add = 'http://garance-remy-ihm.herokuapp.com/api/comments';
+		var comments = 'http://garance-remy-ihm.herokuapp.com/api/comments';
+		var menus = 'http://garance-remy-ihm.herokuapp.com/menus'
 		var obj = {
 			
-			add: function (com, succesCB, failCB) {
-				$http.post(add, com)
+			add: function (objet, succesCB, failCB) {
+				$http.post(comments, objet)
 					.success(function (result){
 						if (result.status == success){
 							succesCB = result.data;
@@ -18,7 +19,7 @@ angular.module('restaurantApp')
 			},
 
 			get: function(coursesId, succesCB, failCB) {
-				$http.get(add + '/' + coursesId)
+				$http.get(menus + '/' + coursesId + '/comments')
 					.success(function (result){
 						if (result.status == success){
 							succesCB = result.data;
@@ -30,7 +31,7 @@ angular.module('restaurantApp')
 			},
 
 			delete: function(comId, failCB) {
-				$http.delete(add + '/' + comId)
+				$http.delete(comments + '/' + comId)
 					.success(function(result){
 						if (result.status != success){
 							failCB = result.data;
@@ -39,8 +40,8 @@ angular.module('restaurantApp')
 					.error(failCB);
 			},
 
-			update: function(comId, succesCB, failCB){
-				$http.put(add + '/' + comId)
+			update: function(comId, objet, succesCB, failCB){
+				$http.put(comments + '/' + comId, objet)
 					.success(function(result){
 						if (result.status == success){
 							succesCB = result.data;

@@ -8,7 +8,7 @@
  * Controller of the restaurantApp
  */
 angular.module('restaurantApp')
-    .controller('MenuCtrl', ['$scope', '$window', 'Menu', 'Course', function ($scope, $window, Menu, Course) {
+    .controller('MenuCtrl', ['$scope', '$window', '$location', 'Menu', 'Course', function ($scope, $window, $location, Menu, Course) {
   /*    $scope.deleteU = function() {
         User.delete($scope.theUId,
             function(error) {
@@ -67,9 +67,10 @@ angular.module('restaurantApp')
                   $scope.menuDetails = []; //must deal w/ error
               });
       };
-        $scope.goToComments = function (theMenuIdYouWant) {
-            ;
-        };
+
+      $scope.goToComments = function (theMenuIdYouWant) {
+            $location.path("/com/"+theMenuIdYouWant);
+      };
         //getMenuCourses
       //  $scope.getThisCourse(ms.courseId)
     }
