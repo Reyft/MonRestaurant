@@ -65,16 +65,4 @@ angular.module('restaurantApp')
     		$scope.com = [];
     		$window.location.reload();
     	}
-
-    	// $scope.getCom = function(menuId){        Les commentaires sont chargés a l'appelle d'une fonction
-    	// 	Com.get(menuId,
-    	// 	function(result){
-    	// 		$scope.com = result;
-    	// 	},
-    	// 	function(error){
-    	// 		$scope.com = [];
-    	// 		console.log('cette erreur la : '+error);
-    	// 	});
-    	// };
-
 	}]);
