@@ -18,7 +18,7 @@ angular.module('restaurantApp')
 					.error(failCB);
 			},
 
-			get: function(coursesId, succesCB, failCB) {
+			all: function(coursesId, succesCB, failCB) {
 				$http.get(menus + '/' + coursesId + '/comments')
 					.success(function (result){
 						if (result.status == "success"){
@@ -46,6 +46,18 @@ angular.module('restaurantApp')
 				$http.put(comments + comId, objet)
 					.success(function(result){
 						if (result.status == "success"){
+							succesCB(result.data);
+						} else {
+							failCB(result.data);
+						};
+					})
+					.error(failCB);
+			},
+
+			get: function(comId, succesCB, failCB){
+				$http.get(comments+comId)
+					.success(function(result){
+						if (result.success = "success"){
 							succesCB(result.data);
 						} else {
 							failCB(result.data);

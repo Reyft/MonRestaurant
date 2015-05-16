@@ -7,7 +7,7 @@
 </div>
 <br />
 <br />
-<div ng-repeat = "c in com | orderBy: '-updatedAt'">
+<div ng-repeat = "c in coms | orderBy: '-updatedAt'">
 	<div class="panel panel-default">
   		<div class="panel-heading">
     		<h3 class="panel-title">{{c.Title}}</h3>
@@ -16,28 +16,61 @@
     		{{c.Content}}
   		</div>
   		<div class="btn-group" role="group" aria-label="...">
-  			<button type="button" class="btn btn-default">Modifier</button>
-  			<button type="button" class="btn btn-default">Supprimer</button>
+  			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modComment" ng-click="getCom(c.id)">Modifier</button>
+  			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#delComment" ng-click="getCom(c.id)">Supprimer</button>
 		</div>
 	</div>
 </div>	
 
-<div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
+<div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="addCommentLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="upgradeModalLabel">Upgrade person</h4>
+                <h4 class="modal-title">Ajouter un commentaire</h4>
             </div>
             <div class="modal-body">                
                 <form novalidate class="simple-form">
-                    Title : <input ng-model="newCom.Title" type="text" required /><br />
+                    Titre : <input ng-model="newCom.Title" type="text" required /><br />
                     Contenu : <input type="text" ng-model="newCom.Content" required /><br />                    
                 </form>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="addCom(newCom)">Ajouter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modComment" tabindex="-1" role="dialog" aria-labelledby="upgradeCommentLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modifier ce commentaire</h4>
+            </div>
+             <div class="modal-body">                
+                <form novalidate class="simple-form">
+                    Titre : <input ng-model="com.Title" type="text" required /><br />
+                    Contenu : <input type="text" ng-model="com.Content" required /><br />                    
+                </form>
+            </div>          
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="updateCom()">Modifier</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delComment" tabindex="-1" role="dialog" aria-labelledby="deleteCommentLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Etes-vous sur de vouloir supprimer ce commentaire ?</h4>
+            </div>          
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()">Supprimer</button>
             </div>
         </div>
     </div>
