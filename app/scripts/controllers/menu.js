@@ -72,7 +72,15 @@ angular.module('restaurantApp')
             $location.path("/com/"+theMenuIdYouWant);
       };
         //getMenuCourses
-      //  $scope.getThisCourse(ms.courseId)
+        $scope.getThisCourse = function(courseIdIWant) {
+            Course.get(courseIdIWant,
+                function (result) {
+                    $scope.MyCourseIWanted = result;
+                },
+                function (error) {
+                    $scope.MyCourseIWanted = 0; //must deal w/ error
+                });
+        }
     }
 
     ]);

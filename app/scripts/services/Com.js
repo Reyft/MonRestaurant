@@ -3,7 +3,7 @@
 angular.module('restaurantApp')
 	.factory('Com', ['$http', function ($http) {
 		var comments = 'http://garance-remy-ihm.herokuapp.com/api/comments';
-		var menus = 'http://garance-remy-ihm.herokuapp.com/menus'
+		var menus = 'http://garance-remy-ihm.herokuapp.com/menus';
 		var obj = {
 			
 			add: function (objet, succesCB, failCB) {
@@ -51,10 +51,9 @@ angular.module('restaurantApp')
 					})
 					.error(failCB);
 			}
-
-			return obj;
-
 			// Pas besoin du all car le get récupère deja tout les commentaires
 			// du même menu
-		}
+		};
+		return obj;
+
 	}])

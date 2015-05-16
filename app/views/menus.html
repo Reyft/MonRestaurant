@@ -29,11 +29,11 @@
             Comme entrées :
             <ul><li ng-repeat="ms in menuDetails | filter:{'name':'starter'}">
               <!--  {{ms.courseId}}-->
-                {{getThisCourse(ms.courseId)}}
+              <!--  {{getThisCourse(ms.courseId)}}-->
             </li> </ul>
             Comme plats :
             <ul><li ng-repeat="mp in menuDetails | filter:{'name':'main'}">
-                {{mp.courseId}}
+              <!--  {{getThisCourse(mp.courseId)}}-->
             </li> </ul>
             Comme desserts :
             <ul><li ng-repeat="md in menuDetails | filter:{'name':'dessert'}">
