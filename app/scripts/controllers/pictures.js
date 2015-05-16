@@ -9,8 +9,8 @@
  */
 angular.module('restaurantApp')
   .controller('PicturesCtrl', ['$scope', function ($scope) {
+    
     $scope.Pictures = [];
-
 
       angular.element(document).ready(function(){
         angular.element('.bxslider').bxSlider({
