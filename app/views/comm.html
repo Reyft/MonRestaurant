@@ -1,7 +1,22 @@
-<div>
-	Commentaires
+<div>	
+	Commentaires	
 </div>
+<br />
+<div ng-repeat = "c in com | orderBy: '-updatedAt'">
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">{{c.Title}}</h3>
+  		</div>
+  		<div class="panel-body">
+    		{{c.Content}}
+  		</div>
+  		<div class="btn-group" role="group" aria-label="...">
+  			<button type="button" class="btn btn-default">Modifier</button>
+  			<button type="button" class="btn btn-default">Supprimer</button>
+		</div>
+	</div>
+</div>
+	
 
-<div>
-	{{menuId}}
-</div>
+
+

@@ -29,7 +29,7 @@ angular
       })
       .when('/menus', {
         templateUrl: 'views/menus.html',
-        controller: 'MenuCtrl'
+        controller: 'MenuCtrl',
       })
       .when('/humans', {
         templateUrl: 'views/humans.html',
