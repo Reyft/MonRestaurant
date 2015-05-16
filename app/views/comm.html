@@ -30,8 +30,10 @@
             </div>
             <div class="modal-body">                
                 <form novalidate class="simple-form">
-                    Titre : <input ng-model="newCom.Title" type="text" required /><br />
-                    Contenu : <input type="text" ng-model="newCom.Content" required /><br />                    
+                    <br />
+                    <input placeholder="Titre..." ng-model="newCom.Title" type="text" required /><br />
+                    <br />
+                    <textarea ng-model="newCom.Content" style="width:100%; resize: none" cols="67%" rows="10%" placeholder="Ecrivez votre commentaire ici..." required/></textarea>                    
                 </form>
             </div>
             <div class="modal-footer">
@@ -50,8 +52,11 @@
             </div>
              <div class="modal-body">                
                 <form novalidate class="simple-form">
-                    Titre : <input ng-model="com.Title" type="text" required /><br />
-                    Contenu : <input type="text" ng-model="com.Content" required /><br />                    
+                    <br/>
+                    <input placeholder="Titre..." ng-model="com.Title" type="text" required /><br />               
+                    <br/>
+                    <textarea ng-model="com.Content" style="width:100%; resize: none" cols="67%" rows="10%" placeholder="Ecrivez votre commentaire ici..." required/></textarea> 
+                    <br />                                    
                 </form>
             </div>          
             <div class="modal-footer">
@@ -75,3 +80,10 @@
         </div>
     </div>
 </div>
+
+<!-- style="overflow: scroll;
+font-family: Segoe Print, Verdan, Arial;
+-moz-border-radius:4px;
+border:1px solid gray;
+border-radius:4px;
+padding-left:8px;" -->
