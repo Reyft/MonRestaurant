@@ -2,51 +2,65 @@
 
 angular.module('restaurantApp')
 	.factory('Com', ['$http', function ($http) {
-		var comments = 'http://garance-remy-ihm.herokuapp.com/api/comments';
-		var menus = 'http://garance-remy-ihm.herokuapp.com/menus';
+		var comments = 'http://garance-remy-ihm.herokuapp.com/api/comments/';
+		var menus = 'http://garance-remy-ihm.herokuapp.com/api/menus';
 		var obj = {
 			
 			add: function (objet, succesCB, failCB) {
 				$http.post(comments, objet)
 					.success(function (result){
-						if (result.status == success){
-							succesCB = result.data;
+						if (result.status == "success"){
+							succesCB(result.data);							
 						} else {
-							failCB = result.data;
+							failCB(result.data);
 						};
 					})
 					.error(failCB);
 			},
 
-			get: function(coursesId, succesCB, failCB) {
+			all: function(coursesId, succesCB, failCB) {
 				$http.get(menus + '/' + coursesId + '/comments')
 					.success(function (result){
-						if (result.status == success){
-							succesCB = result.data;
+						if (result.status == "success"){
+							succesCB(result.data);
 						} else {
-							failCB = result.data;
+							failCB(result.data);
 						};
 					})
-					.error(failCB);
+					.error(function (error){
+						failCB = error;
+					});
 			},
 
 			delete: function(comId, failCB) {
-				$http.delete(comments + '/' + comId)
+				$http.delete(comments + comId)
 					.success(function(result){
-						if (result.status != success){
-							failCB = result.data;
+						if (result.status != "success"){
+							failCB(result.data);
 						}
 					})
 					.error(failCB);
 			},
 
 			update: function(comId, objet, succesCB, failCB){
-				$http.put(comments + '/' + comId, objet)
+				$http.put(comments + comId, objet)
 					.success(function(result){
-						if (result.status == success){
-							succesCB = result.data;
+						if (result.status == "success"){
+							succesCB(result.data);
 						} else {
-							failCB = result.data;
+							failCB(result.data);
+						};
+					})
+					.error(failCB);
+			},
+
+			get: function(comId, succesCB, failCB){
+				$http.get(comments+comId)
+					.success(function(result){
+						if (result.success = "success"){
+							succesCB(result.data);
+						} else {
+							failCB(result.data);
 						};
 					})
 					.error(failCB);
