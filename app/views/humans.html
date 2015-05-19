@@ -24,7 +24,7 @@
         <div class="panel-body">
             <div ng-repeat="qn in theHumans | filter: {employeeRoleId:'3'}">
                 {{qn.firstName}} {{qn.lastName}} est là !
-                <img src="qn.pic"
+                <img src="../assets/images/employees/{{qn.picture}}">
             </div>
         </div>
     </div>
