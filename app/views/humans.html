@@ -1,6 +1,6 @@
-<div>
+<h1>
     Notre Personnel
-</div>
+</h1>
 
 <div class="col-sm-4">
     <div class="panel panel-default">
@@ -10,7 +10,14 @@
         <div class="panel-body">
             <div ng-repeat="qn in theHumans | filter: {employeeRoleId:'1'}">
                {{qn.firstName}} {{qn.lastName}} est là !
-
+                <img src="../assets/images/employees/{{qn.picture}}">
+                Il/Elle vous recommande tout particulièrement :
+                <span ng-repeat="cd in theCourses">
+                    <span  ng-if="qn.courseId == cd.id" style="color:red;">
+                      {{cd.name}}
+                        </span>
+                </span>!
+                <br/><br/>
             </div>
         </div>
     </div>
@@ -22,9 +29,15 @@
             <h3 class="panel-title">Les cuisines</h3>
         </div>
         <div class="panel-body">
-            <div ng-repeat="qn in theHumans | filter: {employeeRoleId:'3'}">
+            <div ng-repeat="qn in theHumans | filter: {employeeRoleId:'2'}">
                 {{qn.firstName}} {{qn.lastName}} est là !
                 <img src="../assets/images/employees/{{qn.picture}}">
+                Il/Elle vous recommande tout particulièrement :
+                <span ng-repeat="cd in theCourses">
+                    <span  ng-if="qn.courseId == cd.id" style="color:red;">
+                      {{cd.name}}
+                        </span>
+                    </span>!
             </div>
         </div>
     </div>
@@ -37,9 +50,15 @@
             <h3 class="panel-title">Le service</h3>
         </div>
         <div class="panel-body">
-            <div ng-repeat="qn in theHumans | filter: {employeeRoleId:'4'}">
+            <div ng-repeat="qn in theHumans | filter: {employeeRoleId:'3'}">
                 {{qn.firstName}} {{qn.lastName}} est là !
-            </div>
+                <img src="../assets/images/employees/{{qn.picture}}">
+                Il/Elle vous recommande tout particulièrement :
+                <span ng-repeat="cd in theCourses">
+                    <span  ng-if="qn.courseId == cd.id" style="color:red;">
+                      {{cd.name}}
+                        </span>
+                    </span>     !       </div>
         </div>
     </div>
 </div>
