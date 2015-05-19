@@ -27,9 +27,7 @@ angular.module('restaurantApp')
 							failCB(result.data);
 						};
 					})
-					.error(function (error){
-						failCB = error;
-					});
+					.error(failCB);					
 			},
 
 			delete: function(comId, failCB) {

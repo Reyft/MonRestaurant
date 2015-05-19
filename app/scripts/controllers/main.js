@@ -14,4 +14,5 @@ angular.module('restaurantApp')
       'AngularJS',
       'Karma'
     ];
+
   }]);
