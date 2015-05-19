@@ -7,6 +7,20 @@ angular.module('restaurantApp')
 
     	$scope.com = [];
 
+        $scope.star=0;
+
+        $scope.putStar = function(intStar){
+            for(var i = 1; i <= 5; i++){
+                var elmt = document.getElementById(i);
+                elmt.style.color= "#aaa";
+            }
+            $scope.star = intStar;
+            for(var i = 1; i <= $scope.star; i++){
+                var elmt = document.getElementById(i);
+                elmt.style.color="red";
+            }            
+        }
+
     	Com.all($scope.menuId,                  // Les commentaires sont automatiquement chargés 
     		function(result){
     			$scope.coms = result;
