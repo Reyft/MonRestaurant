@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body">
             <ul>
-                <li ng-repeat="m in theMenus"> <h4>{{m.name}}</h4>
+                <li ng-repeat="m in theMenus"> <h4>{{m.name}} . {{m.price}} €</h4>
                     <button type="button" class="btn btn-default" ng-click="getDetailsOfMenu(m.id)"> Voir les détails !</button>
                     <button type="button" class="btn btn-default" ng-click="goToComments(m.id)"> Commentaires</button>
 
@@ -30,7 +30,8 @@
          <ul ng-repeat="md in menuDetails">
                 <div ng-repeat="cd in theCourses">
                     <li ng-if="md.courseId == cd.id">
-                        {{cd.name}}
+                        {{cd.name}} ({{cd.price}} € à la carte)<br/>
+                        <img src="../assets/images/courses/{{cd.image}}.jpg">
                     </li>
                 </div>
                 </ul>
