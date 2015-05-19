@@ -1,6 +1,7 @@
 .rating a {
    float: right;
    color: #aaa;
+   border: 50px;
    text-decoration: none;
    font-size: 2em;
    transition: color .4s;
@@ -9,7 +10,7 @@
 .rating a:focus,
 .rating a:hover ~ a,
 .rating a:focus ~ a {
-   color: #1E90FF;
+   color: #1E90FF;    
    cursor: pointer;
 }
 

@@ -7,18 +7,33 @@ angular.module('restaurantApp')
 
     	$scope.com = [];
 
-        $scope.star=0;
+        $scope.Note = 0;
+
+        $scope.etoile = function(intStar){
+            for(var i = 1; i <= intStar; i++){
+               var elmt = document.getElementById(i+5);
+               elmt.style.color="#4169E1"; 
+            }
+        }
 
         $scope.putStar = function(intStar){
             for(var i = 1; i <= 5; i++){
                 var elmt = document.getElementById(i);
                 elmt.style.color= "#aaa";
             }
-            $scope.star = intStar;
-            for(var i = 1; i <= $scope.star; i++){
+            $scope.Note = intStar;
+            for(var i = 1; i <= $scope.Note; i++){
                 var elmt = document.getElementById(i);
-                elmt.style.color="red";
+                elmt.style.color="#4169E1";
             }            
+        }
+
+        $scope.zero = function(){
+            for(var i = 1; i <= 5; i++){
+                var elmt = document.getElementById(i);
+                elmt.style.color= "#aaa";
+            }
+            $scope.Note = 0;
         }
 
     	Com.all($scope.menuId,                  // Les commentaires sont automatiquement chargés 
@@ -36,6 +51,7 @@ angular.module('restaurantApp')
 
     	$scope.addCom = function(newCom){
     		newCom.menuId = $scope.menuId;
+            newCom.Note = $scope.Note;
     		Com.add(newCom,
     			function(result){
     				console.log("commentaire ajouter");
@@ -57,6 +73,7 @@ angular.module('restaurantApp')
     	}
 
     	$scope.updateCom = function(){
+            $scope.com.Note = $scope.Note;
     		Com.update($scope.com.id, $scope.com,
     			function(result){
     				console.log("commentaire modifié");
