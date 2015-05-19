@@ -1,17 +1,17 @@
-<h2 style="text-align: center">
+<h1 style="text-align: center">
     Nos Menus
-</h2>
+</h1>
 <br />
-<div class="col-lg-7 col-md-7 col-sm-7">
+<div class="col-md-6">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Tous nos menus</h3>
+            <h2 class="panel-title">Tous nos menus</h2>
         </div>
         <div class="panel-body">
             <ul>
-                <li ng-repeat="m in theMenus"> {{m.name}} is an awesome menu !
-                    <button class="btn-grp btn-info" ng-click="getDetailsOfMenu(m.id)"> Check it out !</button>
-                    <button class="btn-grp btn-info" ng-click="goToComments(m.id)"> Commentaires</button>
+                <li ng-repeat="m in theMenus"> <h4>{{m.name}} . {{m.price}} €</h4>
+                    <button type="button" class="btn btn-default" ng-click="getDetailsOfMenu(m.id)"> Voir les détails !</button>
+                    <button type="button" class="btn btn-default" ng-click="goToComments(m.id)"> Commentaires</button>
 
                 </li>
             </ul>
@@ -19,20 +19,23 @@
     </div>
 </div>
 
-<div class="col-lg-5 col-md-5 col-sm-5">
+<div class="col-md-5">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Le menu que tu veux</h3>
+            <h2 class="panel-title">Le menu que tu veux</h2>
         </div>
         <div class="panel-body">
-            Dans ce super menu, tu vas trouver : <br/>
-            <ul ng-repeat="md in menuDetails">
+            Dans ce super menu, on trouve : <br/>
+<span>
+         <ul ng-repeat="md in menuDetails">
                 <div ng-repeat="cd in theCourses">
                     <li ng-if="md.courseId == cd.id">
-                        {{cd.name}}
+                        {{cd.name}} ({{cd.price}} € à la carte)<br/>
+                        <img src="../assets/images/courses/{{cd.image}}.jpg">
                     </li>
                 </div>
                 </ul>
+    </span>
 
 
     </div>

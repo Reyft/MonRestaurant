@@ -45,21 +45,9 @@ angular.module('restaurantApp')
             $location.path("/com/"+theMenuIdYouWant);
       };
 
-        $scope.setCourseIdIWant = function(thatCourse) {
-            $scope.courseIWant = thatCourse;
-        };
-        //getMenuCourses
-         $scope.getTheCourse = function (theIdYouAskedFor) {
-            Course.get(theIdYouAskedFor,
-                function (result) {
-                    $scope.thatCourse = result;
-                    console.log(thatCourse);
-                },
-                function (error) {
-                    $scope.thatCourse = []; //must deal w/ error
-                    console.log("error");
-                });
-        }
+
+
+
     }
 
     ]);
