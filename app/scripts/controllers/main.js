@@ -16,4 +16,6 @@ angular.module('restaurantApp')
                 adaptiveHeight: true
             });
         });
+
+
     }]);

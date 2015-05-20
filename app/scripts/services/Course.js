@@ -12,7 +12,7 @@ angular.module('restaurantApp')
     .factory('Course', ['$http', function ($http) {
         var courseAddress = 'http://garance-remy-ihm.herokuapp.com/api/courses/';
         var obj = {
-            add: function(courseInfo, successCB, failCB) {
+   /*         add: function(courseInfo, successCB, failCB) {
                 $http.post(courseAddress, courseInfo)
                     .success(function (result) {
                         if (result.status === 'success') {
@@ -25,7 +25,7 @@ angular.module('restaurantApp')
                         ;
                     })
                     .error(failCB);
-            },
+            }, */
             get: function (courseId, successCB, failCB) { //successCB & fail sont des fonctions qu'on appelle avec des params
                 $http.get(courseAddress + courseId)
                     .success(function (result) {
@@ -44,7 +44,7 @@ angular.module('restaurantApp')
                 //console.log(error); pas de console log ici
 
             },
-            update: function (courseId, newData, successCB, failCB) {
+            /*update: function (courseId, newData, successCB, failCB) {
                 $http.put(courseAddress + courseId, newData)
                     .success(function (result) {
                         if (result.status === 'success') {
@@ -68,7 +68,7 @@ angular.module('restaurantApp')
                         //glop
                     })
                     .error(failCB);
-            },
+            },*/
 
             all: function (successCB, failCB) {
                 //on les appelle comme on veut
